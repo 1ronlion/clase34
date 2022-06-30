@@ -1,0 +1,22 @@
+
+[
+    {
+     "id": 1,
+     "name": "Leo",
+     "lastName": "Bana",
+     "email": "leonardobana@gmail.com",
+     "password": "123456",
+     "image": "",
+     "admin": false
+    },
+    {
+        "id": 2,
+        "name": "Sergio",
+        "lastName": "Admin",
+        "email": "sergio@dh.com",
+        "password": "123456",
+        "image": "",
+        "admin": true
+       }
+
+]

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Login'}) %>
+<body>
+
+    <%- include('partials/headerNavbar') %>
+
+  <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Ingresa tus datos</h2>
+			</div>
+		</div>
+
+		<div class="col-12">
+    <form action="/users/login" method="POST" >
+      <div class="col-12 col-md-6">
+          <label for="exampleInputEmail1">Email address</label>
+          <input name="email"type="email" class="form-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <p style="color:red"> <%= (locals.errors && errors.email ? errors.email.msg : null) %> </p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="exampleInputPassword1">Password</label>
+          <input name="password"type="password" class="form-input" id="exampleInputPassword1" placeholder="Password">
+          <p style="color:red"> <%= (locals.errors && errors.password ? errors.password.msg : null) %> </p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="remember" class="form-label-checkbox">Recordar mi contraseña</label>
+          <input type="checkbox" name="remember">  
+        </div>
+        
+        <div class="col-12">
+          <button type="submit" class="buy-now-button">Ingresar</button>
+        </div>
+      </form>
+      </div>
+      </div>
+
+      <%- include('partials/footer') %>
+
+</body>
+</html>
