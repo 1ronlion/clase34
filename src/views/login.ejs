@@ -14,16 +14,16 @@
 		</div>
 
 		<div class="col-12">
-    <form action="/users/login" method="POST" >
+    <form action="/users/login" method="POST">
       <div class="col-12 col-md-6">
           <label for="exampleInputEmail1">Email address</label>
-          <input name="email"type="email" class="form-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <input name="email" type="text" class="form-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
           <p style="color:red"> <%= (locals.errors && errors.email ? errors.email.msg : null) %> </p>
         </div>
 
         <div class="col-12 col-md-6">
           <label for="exampleInputPassword1">Password</label>
-          <input name="password"type="password" class="form-input" id="exampleInputPassword1" placeholder="Password">
+          <input name="password" type="password" class="form-input" id="exampleInputPassword1" placeholder="Password">
           <p style="color:red"> <%= (locals.errors && errors.password ? errors.password.msg : null) %> </p>
         </div>
 

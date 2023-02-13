@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+
+	<%- include('partials/headerNavbar') %>
+
+
+    <main>
+
+        <form action="/users/register" method="POST" class="formulario-registro">
+    
+            <div class="control-formulario">
+                <label>Nombre y Apellido</label>
+                <input type="text" name="name" class="control">
+            </div>
+    
+            <div class="control-formulario">
+                <label>Nombre de usuario</label>
+                <input type="text" name="userName" class="control">
+            </div>
+    
+                <div class="radio-perfil">
+                    <label>
+                        <input type="radio" name="admin" value= true>
+                        Administrador
+                    </label>
+    
+                    <label>
+                    <input type="radio" name="admin" value=false>
+                    Comprador
+                    </label>
+                </div>
+    
+            </div>
+    
+            <div class="control-formulario">
+                <label>Elegi tu contrasena:</label>
+                <input type="password" name="password">
+            </div>
+    
+    
+            <div class="botones">
+                <button type="submit" class="boton-formulario">Enviar</button>
+                <button type="reset" class="boton-formulario">Borrar</button>
+            </div>
+        </form>
+    
+    </main>
+
+
+<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

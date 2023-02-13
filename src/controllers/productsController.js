@@ -33,18 +33,25 @@ const controller = {
 	
 	// Create -  Method to store
 	store: (req, res) => {
+		
+		let img  
 
-		let image
-		if(req.files[0] != undefined){
-			image = req.files[0].filename
-		}else{
-			image = "default-image.png"
+		if (req.file != undefined){
+
+			img = req.file.filename
+			
+		} else {
+			
+			img = "default-image.png"
+			
 		}
+		
+		console.log("🚀 ~ file: productsController.js:49 ~ req.file", req.file)
 
 		let newProduct = {
 			id: products[products.length - 1].id + 1,
 			...req.body, 
-			image: image
+			image: img
 		}
 
 		products.push(newProduct)
@@ -70,22 +77,25 @@ const controller = {
 		let id = req.params.id
 		let productToEdit = products.find(product => product.id == id)
 
-		
-		console.log("🚀 ~ file: productsController.js ~ line 78 ~ req.files", req.files)
 
+		let img  
 
-		let image
-		if(req.files[0] != undefined){
-			image = req.files[0].filename
-		}else{
-			image = productToEdit.image
+		if (req.file != undefined){
+
+			img = req.file.filename
+
+		} else {
+
+			img = productToEdit.image
+
 		}
-		
-		
+
+		console.log("🚀 ~ file: productsController.js:67 ~ req.file", req.file)
+
 		productToEdit = {
 			id: productToEdit.id,
 			...req.body,
-			image: image,
+			image: img
 		}
 		
 		let newProduct = products.map(product => {
@@ -101,7 +111,7 @@ const controller = {
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(newProduct));
 
-		res.redirect("/products/detail/" + productToEdit.id)
+		res.redirect("/")
 
 	},
 
@@ -109,11 +119,12 @@ const controller = {
 	destroy : (req, res) => {
 		
 		let id = req.params.id
+
 		let productToDelete = products.filter(product => product.id != id)
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(productToDelete));
+		fs.writeFileSync(productsFilePath, JSON.stringify(productToDelete))
 
-		res.redirect("/")
+		res.redirect('/products')
 
 	}
 };
